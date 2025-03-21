@@ -1,6 +1,31 @@
 LATEST CHANGES
 ==============
 
+2025-03-10
+----------
+- Add parameter `svo.use_svo_timestamps` to use the SVO timestamps when publishing data (both stereo and mono components)
+
+2025-03-07
+----------
+- Remove unused open timeout for ZED X One cameras
+
+2025-03-04
+----------
+- Add `pos_tracking.reset_pose_with_svo_loop` parameter to reset the camera pose the `initial_base_pose` when the SVO loop is enabled and the SVO playback reaches the end of the file.
+- Add `svo.play_from_frame` parameter to set the starting frame when playing an SVO file.
+- Add `set_svo_frame` service to set the current frame when playing an SVO file.
+
+2025-02-27
+----------
+- Improve Node Diagnostics information
+
+2025-02-24
+----------
+- Add `general.camera_id` parameter to set the camera ID for the ZedCamera. 
+- Add `general.camera_id` parameter to set the camera ID for the ZedCameraOne.
+- Add `camera_id` argument to the `zed_camera.launch.py` launch file. Useful for GMSL2 multi-camera configurations where camera ID is estabilished by the GMSL2 wire.
+
+
 2025-02-17
 ----------
 - Add uptime and frame drop rate information to node diagnostics

@@ -14,7 +14,7 @@ if(DEFINED ENV{ROS_DISTRO})
     #message("* Found ROS2 ${FOUND_ROS2_DISTRO}")
 else()
     message("* ROS2 distro variable not set. Trying to figure it out...")
-    set(ROS2_DISTROS "ardent;crystal;dashing;eloquent;foxy;galactic;humble;jazzy;rolling")
+    set(ROS2_DISTROS "ardent;bouncy;crystal;dashing;eloquent;foxy;galactic;humble;iron;jazzy;kilted;rolling")
     set(ROS2_FOUND FALSE)
     foreach(distro ${ROS2_DISTROS})
         if(NOT ROS2_FOUND)
@@ -42,7 +42,7 @@ if(ROS2_FOUND)
         #message("* ROS2 ${FOUND_ROS2_DISTRO} is officially supported by this package.")
         add_definitions(-DFOUND_JAZZY)
     else()
-        message("*** WARNING *** ROS2 ${FOUND_ROS2_DISTRO} is not officially supported by the package '${PROJECT_NAME}'. Correct operation is not guaranteed.")
+        message("*** WARNING *** Unsupported ROS2 ${FOUND_ROS2_DISTRO}. '${PROJECT_NAME}' may not work correctly.")
     endif()
 else()
     message("*** WARNING *** ROS2 distro is unknown. This package could not work correctly.")
@@ -60,7 +60,7 @@ endif()
 ###############################################################################
 # Add all files in subdirectories of the project in
 # a dummy_target so qtcreator have access to all files
-file(GLOB_RECURSE all_files ${CMAKE_SOURCE_DIR}/*)
+file(GLOB_RECURSE all_files ${CMAKE_CURRENT_SOURCE_DIR}/*)
 add_custom_target(all_${PROJECT_NAME}_files SOURCES ${all_files})
 ###############################################################################
 
